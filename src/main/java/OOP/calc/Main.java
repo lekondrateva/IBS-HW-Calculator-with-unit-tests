@@ -7,8 +7,15 @@ public class Main {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите выражения для вычисления в формате 'a + b':");
         String expression = in.nextLine();
+
         ReadExp readExp = new ReadExp(expression);
         Calculator calculator = new Calculator(readExp.getA(), readExp.getOperation(), readExp.getB());
-        System.out.println(calculator.calculate().getResult());
+        try {
+            System.out.println(calculator.calculate().getResult());
+        } catch (ArithmeticException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        in.close();
     }
 }

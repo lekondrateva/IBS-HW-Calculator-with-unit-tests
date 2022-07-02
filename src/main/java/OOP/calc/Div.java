@@ -8,12 +8,10 @@ public class Div extends Action {
     }
 
     @Override
-    public double getResult () {
-        if (b!=0)
+    public double getResult() {
+        if (b == 0) {
+            throw new ArithmeticException("Нельзя разделить на ноль!");
+        } else
             return a / b;
-        else {
-            System.out.println("Нельзя разделить на ноль!");
-            return -1;
-        }
-        }
     }
+}
