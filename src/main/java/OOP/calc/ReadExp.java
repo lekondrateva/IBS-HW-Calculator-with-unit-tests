@@ -17,7 +17,10 @@ public class ReadExp {
         return Double.parseDouble(parseLine[2]);
     }
 
-    public String getOperation() {
-        return parseLine[1];
+    public String getOperation() throws Exception {
+        return switch (parseLine[1]) {
+            case "+", "-", "/", "*" -> parseLine[1];
+            default -> throw new Exception("Недопустимые символы!");
+        };
     }
 }

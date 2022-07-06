@@ -9,11 +9,15 @@ public class Main {
         String expression = in.nextLine();
 
         ReadExp readExp = new ReadExp(expression);
-        Calculator calculator = new Calculator(readExp.getA(), readExp.getOperation(), readExp.getB());
         try {
+            Calculator calculator = new Calculator(readExp.getA(), readExp.getOperation(), readExp.getB());
             System.out.println(calculator.calculate().getResult());
+        } catch (NumberFormatException e) {
+            System.out.println("Неверно введены операнды! " + e.getMessage());
         } catch (ArithmeticException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Арифметическая ошибка! " + ex.getMessage());
+        } catch (Exception e) {
+            System.out.println("Неверно введена операция! " + e.getMessage());
         }
 
         in.close();

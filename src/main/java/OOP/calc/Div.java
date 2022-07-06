@@ -8,7 +8,7 @@ public class Div extends Action {
     }
 
     @Override
-    public double getResult() {
+    public double getResult() throws ArithmeticException {
         if (b == 0) {
             throw new ArithmeticException("Нельзя разделить на ноль!");
         } else
